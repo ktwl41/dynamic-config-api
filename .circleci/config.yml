@@ -1,5 +1,16 @@
 version: 2.1
 
+setup: true
+
+orbs:
+  path-filtering: circleci/path-filtering@0.1.0
+
+parameters:
+  build-docs:
+    type: boolean
+    default: false
+    description: "Build documentation if true"
+
 jobs:
   echo:
     docker:
@@ -12,6 +23,10 @@ jobs:
             COLOR: "green"
 
 workflows:
-  main:
+  setup:
     jobs:
-      - echo
+      - path-filtering/filter:
+          base-revision: main
+          config-path: .circleci/continue-config.yml
+          mapping: |
+            docs/.* build-docs true
