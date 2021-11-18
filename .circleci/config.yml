@@ -10,6 +10,10 @@ parameters:
     type: boolean
     default: false
     description: "Build documentation if true"
+  from-setup:
+    type: boolean
+    default: true
+    description: "Dummy pipeline param from this setup config"
 
 workflows:
   setup:
