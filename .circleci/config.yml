@@ -11,17 +11,6 @@ parameters:
     default: false
     description: "Build documentation if true"
 
-jobs:
-  echo:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run:
-          name: Greet
-          command: echo "I love ${COLOR} builds."
-          environment:
-            COLOR: "green"
-
 workflows:
   setup:
     jobs:
