@@ -1,0 +1,20 @@
+version: 2.1
+
+parameters:
+  build-docs:
+    type: boolean
+    default: false
+
+jobs:
+  debug:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: |
+          echo "Build Docs: << pipeline.parameters.build-docs >>"
+
+workflows:
+  continued:
+    jobs:
+      - debug
