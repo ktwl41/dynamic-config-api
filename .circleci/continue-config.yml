@@ -13,6 +13,8 @@ jobs:
       - checkout
       - run: |
           echo "Build Docs: << pipeline.parameters.build-docs >>"
+      - run: |
+          echo "Build Docs: << pipeline.parameters.from-setup >>"
 
 workflows:
   continued:
